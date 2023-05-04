@@ -1,4 +1,5 @@
 import postData from "./postData.json";
+import { Table } from 'reactstrap';
 
 const Posts = () => {
     const printData = () =>
@@ -6,7 +7,7 @@ const Posts = () => {
             const { id, userId, title, body } = data;
             return (
                 <tr key={index}>
-                    <td>{userId}</td>
+                    <th scope='row'>{userId}</th>
                     <td>{id}</td>
                     <td>{title}</td>
                     <td>{body}</td>
@@ -15,8 +16,8 @@ const Posts = () => {
     })
 
     return (
-        <>
-            <table>
+        <div style={{padding: "10px"}}>
+            <Table bordered size="sm" striped hover>
                 <thead>
                     <tr>
                         <th>User ID</th>
@@ -28,8 +29,8 @@ const Posts = () => {
                 <tbody>
                     {printData()}
                 </tbody>
-            </table>
-        </>
+            </Table>
+        </div>
     )
 }
 export default Posts;
