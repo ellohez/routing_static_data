@@ -1,23 +1,21 @@
-import { BrowserRouter, Route, Switch } from 'react-router-dom/cjs/react-router-dom.min';
-import Nav from './Components/Nav';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import NavComponent from './Components/NavComponent';
 import NotFound from './Components/NotFound';
+import Posts from './Components/StaticData/Posts';
 import Home from './Components/Home';
 import './App.css';
 
 function App() {
   return (
-    <>
-      <BrowserRouter>
-      {/* Render our own Nav component which renders the links */}
-        <Nav/>
-        <Switch>
+    <BrowserRouter>
+      <NavComponent/>
+      <Switch>
             <Route path="/" exact><Home /></Route>
-            {/* <Route path="/users/:id"><Users /></Route>
-            <Route path="/contact"><Contact /></Route> */}
+            <Route path="/posts"><Posts /></Route>
+            {/* <Route path="/contact"><Comments /></Route> */}
             <Route path="/404"><NotFound /></Route>
-          </Switch>
-      </BrowserRouter>
-    </>
+      </Switch>
+    </BrowserRouter>
   );
 }
 
